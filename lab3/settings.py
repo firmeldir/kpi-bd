@@ -1,9 +1,8 @@
-import os
-import sys
-import psycopg2
-from enum import IntEnum
-from typing import Callable
 from dotenv import load_dotenv, find_dotenv
+from enum import IntEnum
+import logging
+import sys
+
 load_dotenv(find_dotenv())
 
 
@@ -21,17 +20,17 @@ class MessageType(IntEnum):
     ERROR = 2
 
 
-def is_valid_str(string):
-    return isinstance(string, str) and string.strip()
+def setup_db_logging():
+    handler_sql = logging.FileHandler('db.log')
+    sql_logger = logging.getLogger('sqlalchemy.engine')
+    sql_logger.setLevel(logging.INFO)
+    sql_logger.addHandler(handler_sql)
+    sql_logger.propagate = False
 
 
-def exception_handler(e: Exception, rollback_cb: Callable):
-    if isinstance(e, psycopg2.Error):
-        rollback_cb()
-
-
+DB_DIALECT = "postgresql"
 DB_HOST = "localhost"
 DB_PORT = 5432
-DB_NAME = "poshta"
+DB_NAME = "poshta3"
 DB_USER = "postgres"
 DB_PASSWORD = "123456"
