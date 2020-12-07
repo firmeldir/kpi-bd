@@ -6,7 +6,7 @@
 
 ## ER-діаграма
 
-![ER model](img/er.png)
+![ER model](../img/er.png)
 
 ## Таблиці
 
