@@ -13,11 +13,11 @@
 ## Таблиці
 
 ### warehouses
-![Warehouses](img/warehouses.png)
+![Warehouses](../img/warehouses.png)
 ### orders
-![Orders](img/orders.png)
+![Orders](../img/orders.png)
 ### goods
-![Goods](img/goods.png)
+![Goods](../img/goods.png)
 
 ## Опис структури бази даних
 
